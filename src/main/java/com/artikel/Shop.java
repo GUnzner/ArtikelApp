@@ -1,0 +1,51 @@
+package com.artikel;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+
+//import jakarta.enterprise.context.ApplicationScoped;
+//import jakarta.inject.Named;
+
+@ManagedBean(name="shop")
+@SessionScoped
+public class Shop {
+    private List<Artikel> sortiment = new ArrayList<>();
+ // private List<Artikel> artikelListe = new ArrayList<>();
+    //private static Shop instance = new Shop();
+    public Shop(){
+        
+        sortiment.add(new Artikel("Filzpantoffeln Rudolph", 29.95, "Hausschuhe", true, "resources/images/rudolph.png"));
+        sortiment.add(new Artikel("Winterstiefel Alaska", 49.95, "Stiefel", false, "resources/images/alaska.png"));
+        sortiment.add(new Artikel("Sommersandalen Capri", 19.95, "Sandalen", true, "resources/images/capri.png"));
+        sortiment.add(new Artikel("Gummistiefel Sven", 39.95, "Stiefel", false, "resources/images/sven.png"));
+    }
+    public List<Artikel> getSortiment() {
+        return sortiment;
+    }
+    // public static Shop getInstance() {
+    //     return instance;
+    // }
+    
+    // public List<Artikel> getArtikelListe() {
+    //     return artikelListe;
+    // }
+     
+    // public void setArtikelListe(List<Artikel> artikelListe) {
+    //      this.artikelListe = artikelListe;
+    //  }
+    
+     public void addArtikel(Artikel artikel) {
+         if (sortiment.size() < 10) {
+             sortiment.add(new Artikel(
+            	        artikel.getName(),
+            	        artikel.getPreis(),
+            	        artikel.getKategorie(),
+            	        artikel.isVerfuegbarkeit(),
+            	        artikel.getBild()
+            	    ));
+         }
+     	}
+     }    
