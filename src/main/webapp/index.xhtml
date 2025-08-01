@@ -14,31 +14,39 @@
             <h:panelGrid columns="1" styleClass="filterform">
                 <h:messages globalOnly="true" errorClass="error" />
 
+				<h:outputLabel value="Artikelname" for="artikelname" />
                 <h:inputText value="#{artikel.name}" id="artikelname" required="true"
                     requiredMessage="Bitte geben Sie einen Artikelnamen ein" />
                 <h:message for="artikelname" errorClass="error" />
 
+				<h:outputLabel value="Preis" for="preis" />
                 <h:inputText value="#{artikel.preis}" id="preis" required="true"
-                    requiredMessage="Bitte geben Sie einen Mindestpreis ein" />
+                    requiredMessage="Bitte geben Sie einen Mindestpreis ein" >
+                    <f:validateDoubleRange minimum="0.01" />
+                    <f:convertNumber />
+                </h:inputText>
                 <h:message for="preis" errorClass="error" />
 
                 <h:outputLabel value="Kategorie" for="kategorie" />
-                <h:selectOneMenu value="Kategorie">
-                    <f:selectItem itemLabel="Hausschuhe" itemValue="hausschuhe" />
-                    <f:selectItem itemLabel="Stiefel" itemValue="stiefel" />
-                    <f:selectItem itemLabel="Sandalen" itemValue="sandalen" />
+                <h:selectOneMenu value="#{artikel.kategorie}" id="kategorie" required="true"
+    			requiredMessage="Bitte wählen Sie eine Kategorie aus">
+                	<f:selectItem itemLabel="Bitte wählen" itemValue="" noSelectionOption="true" />
+                    <f:selectItem itemLabel="Hausschuhe" itemValue="Hausschuhe" />
+                    <f:selectItem itemLabel="Stiefel" itemValue="Stiefel" />
+                    <f:selectItem itemLabel="Sandalen" itemValue="Sandalen" />
                 </h:selectOneMenu>
+                <h:message for="kategorie" errorClass="error" />
 
                 <h:outputLabel value="Verfügbarkeit" for="verfuegbar" />
-                <h:selectBooleanCheckbox value="verfuegbar" id="verfuegbar" required="true"
-                    requiredMessage="Bitte geben Sie die Verfügbarkeit an"/>                
+                <h:selectBooleanCheckbox value="#{artikel.verfuegbarkeit}" id="verfuegbar" />    
 
-                <h:commandButton value="Filtern" action="#{shop.addArtikel(artikel)}"/>
+                <h:commandButton value="Hinzufügen" action="#{shop.addArtikel(artikel)}"/>
             </h:panelGrid>
         </h:form>
 
         <h:dataTable value="#{shop.sortiment}" var="artikel"
-        styleClass="artikel" rowClasses="header,verfuegbar,ausverkauft,verfuegbar,ausverkauft">
+        styleClass="artikel" 
+        rowClasses="verfuegbar,ausverkauft">
 
             <h:column>
                 <f:facet name="header">

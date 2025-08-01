@@ -1,26 +1,21 @@
 package com.artikel;
 
-//import jakarta.inject.Named;
-//import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.SessionScoped;
 import java.io.Serializable;
 
 import javax.faces.bean.ManagedBean;
-//import java.util.ArrayList;
-//import java.util.List;
 
 @ManagedBean(name="artikel")
 @SessionScoped
 public class Artikel implements Serializable {
     
     private String name;
-    private double preis;
+    private Double preis;
     private String kategorie;
     private boolean verfuegbarkeit;
     private String bild; 
 
     public Artikel() {
-         // Default constructor
      }
 
      // Getters and Setters
@@ -45,11 +40,11 @@ public class Artikel implements Serializable {
         this.name = name;
     }
 
-    public double getPreis() {
+    public Double getPreis() {
         return preis;
     }
 
-    public void setPreis(double preis) {
+    public void setPreis(Double preis) {
         this.preis = preis;
     }
 
@@ -69,15 +64,13 @@ public class Artikel implements Serializable {
         this.verfuegbarkeit = verfuegbarkeit;
     }
 
-     public Artikel(String name, double preis, String kategorie, boolean verfuegbarkeit, String bild) {
+     public Artikel(String name, Double preis, String kategorie, boolean verfuegbarkeit, String bild) {
         this.name = name;
         this.preis = preis;
         this.kategorie = kategorie;
         this.verfuegbarkeit = verfuegbarkeit;
         this.bild = bild;
     }
-
- 
 
    
 }
