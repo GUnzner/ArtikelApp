@@ -19,12 +19,12 @@ th {
     text-align: center;
 }
 
-tr.verfuegbar {
-    background-color: green;
+.verfuegbar {
+    background-color: green !important;
 }
 
-tr.ausverkauft {
-    background-color: red;
+.ausverkauft {
+    background-color: red !important;
 }
 
 tr.header {

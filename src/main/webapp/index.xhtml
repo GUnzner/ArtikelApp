@@ -44,40 +44,40 @@
             </h:panelGrid>
         </h:form>
 
-        <h:dataTable value="#{shop.sortiment}" var="artikel"
-        styleClass="artikel" 
-        rowClasses="verfuegbar,ausverkauft">
+        <h:dataTable value="#{shop.sortiment}" var="art"
+        styleClass="artikel"
+        rowClasses="#{shop.rowClasses}" >
 
             <h:column>
                 <f:facet name="header">
                     <h:outputText value="Artikelname" />
                 </f:facet>
-                <h:outputText value="#{artikel.name}" />
+                <h:outputText value="#{art.name}" />
             </h:column>
             <h:column>
                 <f:facet name="header">
                     <h:outputText value="Preis" />
                 </f:facet>
-                <h:outputText value="#{artikel.preis}" />
+                <h:outputText value="#{art.preis}" />
             </h:column>
             <h:column>
                 <f:facet name="header">
                     <h:outputText value="Kategorie" />
                 </f:facet>
-                <h:outputText value="#{artikel.kategorie}" />
+                <h:outputText value="#{art.kategorie}" />
             </h:column>
             <h:column>
                 <f:facet name="header">
                     <h:outputText value="Verfügbarkeit" />
                 </f:facet>
-                <h:outputText value="#{artikel.verfuegbarkeit ? '✔' : '✖'}" />
+                <h:outputText value="#{art.verfuegbarkeit ? '✔' : '✖'}" />
             </h:column>
             <h:column>
                 <f:facet name="header">
                     <h:outputText value="Bild" />
                 </f:facet>
-                <h:graphicImage value="#{artikel.bild}" width="60"/>
-            </h:column>     
+                <h:graphicImage value="#{art.bild}" width="60"/>
+            </h:column>  
         </h:dataTable>      
 
     </h:panelGrid>

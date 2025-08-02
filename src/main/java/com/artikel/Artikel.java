@@ -72,5 +72,9 @@ public class Artikel implements Serializable {
         this.bild = bild;
     }
 
+//     public String getRowClasses() {
+//    	    return this.verfuegbarkeit ? "verfuegbar" : "ausverkauft";
+//    	}
+
    
 }
